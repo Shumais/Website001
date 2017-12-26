@@ -29,9 +29,8 @@
           # - command
     artifacts:
       files:
-        - pipelineLambda.py
-        - pipelineLambda.txt
-        - pipelineLambdaCFT.txt
+        - code.py
+        - TestCPL.json
         # - location
       discard-paths: yes
       #base-directory: location
