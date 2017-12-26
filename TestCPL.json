@@ -1,0 +1,73 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+	
+	"Parameters": {
+        "FunctionName": {
+            "Type": "String",
+            "Description": "Enter the name of your Lambda Function"
+        },
+		"BucketName":{
+		"Type":"String",
+		"Description" :  "Bucket Name"
+		
+		},
+		"FileName":{
+		   "Type": "String",
+		   "Description" : "Code File Name"
+		},
+		"HandlerName" : {
+		"Type": "String",
+		   "Description" : "Handler Name",
+		   "Default": "lambda_function.lambda_handler"  
+		}
+		
+		},
+    "Resources": {
+		"lambdafuncwithS3": {
+				"Type": "AWS::Lambda::Function",
+				"Properties": {
+					"FunctionName" : "testing_cpl",
+					"Code": {
+						"S3Bucket": "amway-ahsan",
+						"S3Key": "amway-simple.zip"
+					},
+					"Role": {
+						"Fn::GetAtt": ["LambdaExecutionRole", "Arn"]
+					},
+					"Timeout": 60,
+					"Handler": {"Ref" :"HandlerName"},
+					"Runtime": "python2.7",
+					"MemorySize": 128
+				},
+				"DependsOn": "LambdaExecutionRole"
+			},
+
+"LambdaExecutionRole": {
+			  "Type": "AWS::IAM::Role",
+			  "Properties": {
+				"AssumeRolePolicyDocument": {
+				  "Version": "2012-10-17",
+				  "Statement": [{ "Effect": "Allow", "Principal": {"Service": ["lambda.amazonaws.com"]}, "Action": ["sts:AssumeRole"] }]
+				},
+				"Path": "/",
+				"Policies": [{
+				  "PolicyName": "root",
+				  "PolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [{ "Effect": "Allow", "Action": ["logs:*"], "Resource": "arn:aws:logs:*:*:*" }]
+				  }
+				}]
+			  }
+  }
+    
+	
+	
+	},
+    
+    "Outputs" : {
+  "LambdaFunctionArn" : {
+    "Description": "The Following Lambda Function is created successfuly",  
+    "Value" : { "Fn::GetAtt" :  ["lambdafuncwithS3","Arn"] }
+  }
+}
+}
