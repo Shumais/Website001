@@ -6,7 +6,7 @@
 				"Properties": {
 					"FunctionName" : "testing_cpl",
 					"Code": {
-						"S3Bucket": "amway-ahsan",
+						"S3Bucket": "test-lambda-code001",
 						"S3Key": "amway-simple.zip"
 					},
 					"Role": {
