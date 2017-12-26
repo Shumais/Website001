@@ -1,21 +1,43 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
+	
+	"Parameters": {
+        "FunctionName": {
+            "Type": "String",
+            "Description": "Enter the name of your Lambda Function"
+        },
+		"BucketName":{
+		"Type":"String",
+		"Description" :  "Bucket Name"
+		
+		},
+		"FileName":{
+		   "Type": "String",
+		   "Description" : "Code File Name"
+		},
+		"HandlerName" : {
+		"Type": "String",
+		   "Description" : "Handler Name",
+		   "Default": "lambda_function.lambda_handler"  
+		}
+		
+		},
     "Resources": {
 		"lambdafuncwithS3": {
 				"Type": "AWS::Lambda::Function",
 				"Properties": {
 					"FunctionName" : "testing_cpl",
 					"Code": {
-						"S3Bucket": "test-lambda-code001",
+						"S3Bucket": "amway-ahsan",
 						"S3Key": "amway-simple.zip"
 					},
 					"Role": {
 						"Fn::GetAtt": ["LambdaExecutionRole", "Arn"]
 					},
 					"Timeout": 60,
-					"Handler": "lambda_function.lambda_handler",
+					"Handler": {"Ref" :"HandlerName"},
 					"Runtime": "python2.7",
-					"MemorySize": 256
+					"MemorySize": 128
 				},
 				"DependsOn": "LambdaExecutionRole"
 			},
