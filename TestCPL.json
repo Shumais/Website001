@@ -2,24 +2,10 @@
     "AWSTemplateFormatVersion": "2010-09-09",
 	
 	"Parameters": {
-        "FunctionName": {
-            "Type": "String",
-            "Description": "Enter the name of your Lambda Function"
-        },
-		"BucketName":{
-		"Type":"String",
-		"Description" :  "Bucket Name"
+       
 		
-		},
-		"FileName":{
-		   "Type": "String",
-		   "Description" : "Code File Name"
-		},
-		"HandlerName" : {
-		"Type": "String",
-		   "Description" : "Handler Name",
-		   "Default": "lambda_function.lambda_handler"  
-		}
+		
+		
 		
 		},
     "Resources": {
@@ -35,7 +21,7 @@
 						"Fn::GetAtt": ["LambdaExecutionRole", "Arn"]
 					},
 					"Timeout": 60,
-					"Handler": {"Ref" :"HandlerName"},
+					"Handler" :"lambda_function.lambda_handler",
 					"Runtime": "python2.7",
 					"MemorySize": 128
 				},
