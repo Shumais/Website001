@@ -12,7 +12,7 @@
 		"lambdafuncwithS3": {
 				"Type": "AWS::Lambda::Function",
 				"Properties": {
-					"FunctionName" : "testing_cpl",
+					"FunctionName" : "testing_cpl23aws",
 					"Code": {
 						"S3Bucket": "amway-ahsan",
 						"S3Key": "amway-simple.zip"
