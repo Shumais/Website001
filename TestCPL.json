@@ -2,6 +2,9 @@
     "AWSTemplateFormatVersion": "2010-09-09",
 	
 	"Parameters": {
+		 "FunctionName":{
+			 "Type"  :"String"
+		 }
        
 		
 		
@@ -12,7 +15,7 @@
 		"lambdafuncwithS3": {
 				"Type": "AWS::Lambda::Function",
 				"Properties": {
-					"FunctionName" : "testing_cpl34aws",
+					"FunctionName" : {"Ref" : "FunctionName"},
 					"Code": {
 						"S3Bucket": "test-lambda-code001",
 						"S3Key": "amway-simple.zip"
