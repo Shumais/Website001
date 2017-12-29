@@ -12,16 +12,16 @@
 		"lambdafuncwithS3": {
 				"Type": "AWS::Lambda::Function",
 				"Properties": {
-					"FunctionName" : "testing_cpl23aws",
+					"FunctionName" : "testing_cpl34aws",
 					"Code": {
-						"S3Bucket": "amway-ahsan",
+						"S3Bucket": "test-lambda-code001",
 						"S3Key": "amway-simple.zip"
 					},
 					"Role": {
 						"Fn::GetAtt": ["LambdaExecutionRole", "Arn"]
 					},
 					"Timeout": 60,
-					"Handler" :"lambda_function.lambda_handler",
+					"Handler" :"index.handler",
 					"Runtime": "python2.7",
 					"MemorySize": 128
 				},
