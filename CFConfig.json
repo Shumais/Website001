@@ -1,8 +1,3 @@
 {
- "FunctionName":"testing_cpl",
- 
- "BucketName":"test-lambda-code001",
- "FileName" : "amway-simple.zip",
- "HandlerName":"lambda_function.lambda_handler"
- 
+ "FunctionName":"testing_cpl" 
 }
