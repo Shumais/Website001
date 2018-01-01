@@ -30,8 +30,6 @@
     artifacts:
       files:
         - code.py
-        - TestCPL.json
-        - CFConfig.json
         # - location
       discard-paths: yes
       #base-directory: location
