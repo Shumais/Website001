@@ -1,4 +1,4 @@
-import code
+from code import *
 
 def test_adding_module():
 	sum = code.add_numbers(12,8)
