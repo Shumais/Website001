@@ -30,6 +30,7 @@
     artifacts:
       files:
         - code.py
+        - target/SampleMavenTomcatApp.zip
         # - location
       discard-paths: yes
       #base-directory: location
